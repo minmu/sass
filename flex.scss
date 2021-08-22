@@ -1,0 +1,35 @@
+@each $var in flex, grid, block, none {
+  .#{$var} {
+    display: #{$var};
+  }
+}
+
+@each $item in center, start, end {
+  .items-#{$item} {
+    @if #{$item} == 'start' {
+      align-items: flex-#{$item};
+    } @else if #{$item} == 'end' {
+      align-items: flex-#{$item};
+    } @else {
+      align-items: #{$item};
+    }
+  }
+}
+
+@each $var in center, end, start, between, around, evenly {
+  .justify-#{$var} {
+    justify-content: #{$var};
+  }
+}
+
+@each $var in row, row-reverse, col, col-reverse {
+  .flex-#{$var} {
+    @if #{$var} == 'col' {
+      flex-direction: column;
+    } @else if #{$var} == 'col-reverse' {
+      flex-direction: column-reverse;
+    } @else {
+      flex-direction: #{$var};
+    }
+  }
+}
