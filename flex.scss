@@ -16,12 +16,6 @@
   }
 }
 
-@each $var in center, end, start, between, around, evenly {
-  .justify-#{$var} {
-    justify-content: #{$var};
-  }
-}
-
 @each $var in row, row-reverse, col, col-reverse {
   .flex-#{$var} {
     @if #{$var} == 'col' {
@@ -30,6 +24,25 @@
       flex-direction: column-reverse;
     } @else {
       flex-direction: #{$var};
+    }
+  }
+}
+
+
+@each $var in center, end, start, between, around, evenly {
+  .justify-#{$var} {
+    @if #{$var} == 'end' {
+      justify-content: flex-end;
+    } @else if #{$var} == 'start' {
+      justify-content: flex-start;
+    } @else if #{$var} == 'between' {
+      justify-content: space-between;
+    } @else if #{$var} == 'around' {
+      justify-content: space-around;
+    } @else if #{$var} == 'evenly' {
+      justify-content: space-evenly;
+    } @else {
+      justify-content: #{$var};
     }
   }
 }
